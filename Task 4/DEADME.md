@@ -32,10 +32,13 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 
 **В задаче непараметрической регрессии были реализованы следующие ядра на языке Python:**
 * Гауссовское ядро:
+
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/2823201b13dc500e1a48d7907c3c64c2ad82395d)
 
 * Квартическое ядро (оно же биквадратичное):
+
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/b0c8b60cf84bc6bcdaa124b727e382b0716c033d)
+
 Носитель:![](https://wikimedia.org/api/rest_v1/media/math/render/svg/63aeef556c12f0f18861dbeee4d1342237989334)
 
 > Список литературы:
