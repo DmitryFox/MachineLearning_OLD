@@ -26,6 +26,23 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 > 1) MachineLearning.ru - http://www.machinelearning.ru/wiki/index.php?title=%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0_%D0%9D%D0%B0%D0%B4%D0%B0%D1%80%D0%B0%D1%8F-%D0%92%D0%B0%D1%82%D1%81%D0%BE%D0%BD%D0%B0)
 > 2) Математические методы обучения по прецедентам (теория обучения машин) К. В. Воронцов
 
+**Метод LOWESS**
+
+Алгоритм LOWESS  выглядит следующим образом:
+1. Инициализировать ![enter image description here](http://www.machinelearning.ru/mimetex/?\delta_1:=\ldots=\delta_m:=1)
+
+**2. повторять**
+
+3. Вычислить оценки скользящего контроля на каждом объекте 
+
+![enter image description here](http://www.machinelearning.ru/mimetex/?%20\hat{y_t}:=a(x_t;%20X\setminus\{%20x_t\})%20=%20\frac{%20\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20\delta_i%20K\left(%20\frac{\rho(x_i,x_t)}{h(x_t)}\right)}%20}%20{\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20K\left(%20\frac{\rho(x_i,x_t)}{h(x_t)}\right)}%20})
+  
+4. По набору значений \hat{\varepsilon_t}= \| \hat{y_t} - y_t \| вычислить новые значения коэффициентов \delta_t. 
+
+5. пока веса \delta_t не стабилизируются 
+
+> 1) MachineLearning.ru - http://www.machinelearning.ru/wiki/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_LOWESS
+
 
 **Функция Ядра:**
 В [непараметрической статистике](https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0 "Непараметрическая статистика") под ядром понимается весовая функция, используемая при оценке распределений и параметров ([ядерная оценка плотности](https://ru.wikipedia.org/wiki/%D0%AF%D0%B4%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B0_%D0%BF%D0%BB%D0%BE%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8 "Ядерная оценка плотности"), [ядерная регрессия](https://ru.wikipedia.org/wiki/%D0%AF%D0%B4%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_%D1%80%D0%B5%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D1%8F "Ядерная регрессия")).  Ядерная оценка плотности является задачей сглаживания данных. Смысл ядерной регрессии заключается в поиске нелинейного отношения между парой случайных величин **X** и **Y**. Ядерная оценка требует специфицировать ширину окна.
