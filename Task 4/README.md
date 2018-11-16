@@ -24,7 +24,7 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 	* ![equation](https://latex.codecogs.com/gif.latex?w_t,%20\,\,\,%20t=1,\ldots,m) весовые функции;
 * Выход:
 	* коэффициенты ![equation](https://latex.codecogs.com/gif.latex?\delta_t,%20\,\,\,%20t=1,\ldots,m)
---
+---
 1. Инициализировать ![equation](https://latex.codecogs.com/gif.latex?\delta_1:=\ldots=\delta_m:=1)
 2. **повторять**
 3. Вычислить оценки скользящего контроля на каждом объекте: <br />
