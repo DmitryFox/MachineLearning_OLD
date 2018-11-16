@@ -24,12 +24,12 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 	* ![equation](https://latex.codecogs.com/gif.latex?w_t,%20\,\,\,%20t=1,\ldots,m) весовые функции;
 * Выход:
 	* коэффициенты ![equation](https://latex.codecogs.com/gif.latex?\delta_t,%20\,\,\,%20t=1,\ldots,m)
-----
+--
 1. Инициализировать ![equation](https://latex.codecogs.com/gif.latex?\delta_1:=\ldots=\delta_m:=1)
 2. **повторять**
-3. Вычислить оценки скользящего контроля на каждом объекте
+3. Вычислить оценки скользящего контроля на каждом объекте:
+* ![equation](https://latex.codecogs.com/gif.latex?\hat{y_t}:=a(x_t;%20X\setminus\{%20x_t\})%20=%20\frac{%20\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20\delta_i%20K\left(%20\frac{\rho(x_i,x_t)}%20{h(x_t)}\right)}}%20{\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20K\left(%20\frac{\rho(x_i,x_t)}{h(x_t)}\right)}%20})
 
-![equation](https://latex.codecogs.com/gif.latex?\hat{y_t}:=a(x_t;%20X\setminus\{%20x_t\})%20=%20\frac{%20\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20\delta_i%20K\left(%20\frac{\rho(x_i,x_t)}%20{h(x_t)}\right)}}%20{\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20K\left(%20\frac{\rho(x_i,x_t)}{h(x_t)}\right)}%20})
 4. По набору значений ![equation](https://latex.codecogs.com/gif.latex?\hat{\varepsilon_t}=%20\|%20\hat{y_t}%20-%20y_t%20\|$%20%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BA%D0%BE%D1%8D%D1%84%D1%84%D0%B8%D1%86%D0%B8%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20$\delta_t).
 5. **пока** веса ![equation](https://latex.codecogs.com/gif.latex?\delta_t) не стабилизируются
 
