@@ -5,7 +5,8 @@
 
 Формула Надарая-Ватсона используется для решения задачи непараметрического [восстановления регрессии.](http://www.machinelearning.ru/wiki/index.php?title=%D0%A0%D0%B5%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7 "Восстановление регрессии")
 
-Реализована формула Надарая-Ватсона на языке python: ![equation](https://latex.codecogs.com/gif.latex?a_h(x;X^l)%20=%20\frac{\sum_{i=1}^{l}%20y_i\omega_i(x)}{\sum_{i=1}^{l}%20\omega_i(x)}%20=%20\frac{\sum_{i=1}^{l}%20y_iK\left(\frac{\rho(x,x_i)}{h}%20\right%20)}{\sum_{i=1}^{l}%20K\left(\frac{\rho(x,x_i)}{h}%20\right%20)})
+Реализована формула Надарая-Ватсона на языке python:<br />
+![equation](https://latex.codecogs.com/gif.latex?a_h(x;X^l)%20=%20\frac{\sum_{i=1}^{l}%20y_i\omega_i(x)}{\sum_{i=1}^{l}%20\omega_i(x)}%20=%20\frac{\sum_{i=1}^{l}%20y_iK\left(\frac{\rho(x,x_i)}{h}%20\right%20)}{\sum_{i=1}^{l}%20K\left(\frac{\rho(x,x_i)}{h}%20\right%20)})
 
 Функция находиться в файле `regression.py`
 ```python
