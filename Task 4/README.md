@@ -20,19 +20,18 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 
 Алгоритм LOWESS  выглядит следующим образом:
 * Вход:
-	* $X^m$ — обучающая выборка;
-	* $w_t, \,\,\, t=1,\ldots,m$ весовые функции;
+	* ![equation](https://latex.codecogs.com/gif.latex?X^m) — обучающая выборка;
+	* ![equation](https://latex.codecogs.com/gif.latex?w_t,%20\,\,\,%20t=1,\ldots,m) весовые функции;
 
 * Выход:
-	* коэффициенты $\delta_t, \,\,\, t=1,\ldots,m$
+	* коэффициенты ![equation](https://latex.codecogs.com/gif.latex?\delta_t,%20\,\,\,%20t=1,\ldots,m)
 ----
-1. Инициализировать $\delta_1:=\ldots=\delta_m:=1$
+1. Инициализировать ![equation](https://latex.codecogs.com/gif.latex?\delta_1:=\ldots=\delta_m:=1)
 2. **повторять**
 3. Вычислить оценки скользящего контроля на каждом объекте 
-$$\hat{y_t}:=a(x_t; X\setminus\{ x_t\}) = \frac{ \sum_{i=1, i\neq t }^{m} {y_i \delta_i K\left( \frac{\rho(x_i,x_t)} {h(x_t)}\right)}} {\sum_{i=1, i\neq t }^{m} {y_i K\left( \frac{\rho(x_i,x_t)}{h(x_t)}\right)} }$$
-5. По набору значений $\hat{\varepsilon_t}= \| \hat{y_t} - y_t \|$ вычислить новые значения коэффициентов $\delta_t$. 
-6. **пока** веса $\delta_t$ не стабилизируются
-
+![equation](https://latex.codecogs.com/gif.latex?\hat{y_t}:=a(x_t;%20X\setminus\{%20x_t\})%20=%20\frac{%20\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20\delta_i%20K\left(%20\frac{\rho(x_i,x_t)}%20{h(x_t)}\right)}}%20{\sum_{i=1,%20i\neq%20t%20}^{m}%20{y_i%20K\left(%20\frac{\rho(x_i,x_t)}{h(x_t)}\right)}%20})
+4. По набору значений ![equation](https://latex.codecogs.com/gif.latex?\hat{\varepsilon_t}=%20\|%20\hat{y_t}%20-%20y_t%20\|$%20%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BA%D0%BE%D1%8D%D1%84%D1%84%D0%B8%D1%86%D0%B8%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20$\delta_t).
+5. **пока** веса ![equation](https://latex.codecogs.com/gif.latex?\delta_t) не стабилизируются
 
 ## Функция Ядра:
 В [непараметрической статистике](https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0 "Непараметрическая статистика") под ядром понимается весовая функция, используемая при оценке распределений и параметров ([ядерная оценка плотности](https://ru.wikipedia.org/wiki/%D0%AF%D0%B4%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B0_%D0%BF%D0%BB%D0%BE%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8 "Ядерная оценка плотности"), [ядерная регрессия](https://ru.wikipedia.org/wiki/%D0%AF%D0%B4%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_%D1%80%D0%B5%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D1%8F "Ядерная регрессия")).  Ядерная оценка плотности является задачей сглаживания данных. Смысл ядерной регрессии заключается в поиске нелинейного отношения между парой случайных величин **X** и **Y**. Ядерная оценка требует специфицировать ширину окна.
