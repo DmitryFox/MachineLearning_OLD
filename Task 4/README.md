@@ -24,6 +24,9 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 ```
 Принимает аргументы: `value` - искомое, оптимальное значение в точке x;  `x` - вектор объектов;  `y` - вектор ответов; `h` - коэффициент сглаживания (ширина окна); `kernel` - функция ядра; `metric` - функция метрики (находящая длину).
 
+Пример в виде графика:<br />
+<img src="https://raw.githubusercontent.com/DmitryFox/MachineLearning/master/Task%204/image/nadaray_watson_gauss_and_quartic.png" width="350" />
+
 ## Метод LOWESS
 
 Оценка Надарайя–Ватсона крайне чувствительна к большим одиночным выбросам. Идея обнаружения выбросов заключается в том, что чем больше величина ошибки, тем в большей степени прецеддент является выбросом, и тем меньше должен быть его вес.
@@ -42,6 +45,30 @@ def nadaraya_watson(value, x, y, h, kernel, metric):
 4. Вычислить коэфициенты: ![equation](https://latex.codecogs.com/gif.latex?\gamma_i)<br />
 ![equation](https://latex.codecogs.com/gif.latex?\gamma_i:=%20\tilde{K}(|%20a_i%20-%20y_i%20\|);%20i%20=%201,...,\ell;)
 5. **пока** коэффициенты ![equation](https://latex.codecogs.com/gif.latex?\gamma_i) не стабилизируются;
+
+Примеры в виде графика:<br />
+<img src="https://raw.githubusercontent.com/DmitryFox/MachineLearning/master/Task%204/image/lowess_gauss_and_quartic.png" width="350" />
+
+<br />
+
+### Сравнение Формулы Надарая-Ватсона с методом LOWESS:
+
+Примеры в виде графика:<br />
+1) Использовано Гауссовское Ядро:<br />
+<img src="https://raw.githubusercontent.com/DmitryFox/MachineLearning/master/Task%204/image/lowess_watson_gauss.png" width="350" /><br />
+
+Method | SSE
+------------- | -------------
+Nadaraya-Watson  | 425.4048270963928
+LOWESS | 276.610708711001
+
+2) Использовано Квадратичное Ядро:<br />
+<img src="https://raw.githubusercontent.com/DmitryFox/MachineLearning/master/Task%204/image/lowess_watson_quartic.png" width="350" /><br />
+
+Method | SSE
+------------- | -------------
+Nadaraya-Watson  | 595.2909859959468
+LOWESS | 466.56825738979785
 
 <br />
 
